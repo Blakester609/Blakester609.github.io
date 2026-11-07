@@ -51,49 +51,49 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "",
     "text": "Narrative word count: Replace with a number from 750 to 1,000."
   },
   {
     "objectID": "index.html#the-question",
     "href": "index.html#the-question",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "The question",
-    "text": "The question\nIn one or two short paragraphs, introduce the setting, audience, focused research question, data source, observational unit, response, important predictors, and one important data limitation. Lead with what makes the question worth answering."
+    "text": "The question\nWhich factors most influence an NBA team’s winning percentage? For this project we will seek to predict win percentage for NBA teams given stats such as season total rebounds, shot percentage, free-throw percentage, assists, blocks, etc. The intended audience for this project is Dr. White, as well as any NBA fans in our class. Understanding factors that contribute to win percentage is important for die-hard fans to contextualize their team’s performance over the course of a season. The answer also matters for sports broadcasters so that they can help their viewers understand why certain teams are better than others.\nThe dataset used in this study is the NBA Teams Stat 2000–2023 dataset, created by bluedreamv1b3 and hosted on Kaggle: https://www.kaggle.com/datasets/bluedreamv1b3/nba-teams-stat-2000-2023. The specific file analyzed is pergame_stats_total.csv. The observational unit is an NBA team season (a single NBA franchise’s regular season performance in a given year, e.g., 2015-16 Golden State Warriors). The dataset contains 720 observations (30 teams across 24 seasons from 2000 to 2023) and approximately 25 to 30 feature columns. Response Variable: Win-Loss Percentage (W/L% or calculated as \\(\\text{Wins} / (\\text{Wins} + \\text{Losses})\\)).Candidate Predictors: Per-game team statistics, including Points Per Game (PTS), Field Goal Percentage (FG%), Three-Point Percentage (3P%), Rebounds (TRB), Assists (AST), Steals (STL), Blocks (BLK), Turnovers (TOV), and Opponent Points Allowed (OPTS or PTSd). The data was collected via web scraping from public statistical archives on Basketball-Reference.com. Because Basketball-Reference makes aggregate sports statistics publicly available for fan and research use, retrieving and sharing this dataset for academic/educational non-commercial purposes carries no privacy concerns (it contains aggregate team performance metrics, no private personal data). Team win/loss percentage in professional basketball is directly driven by offensive efficiency (scoring capacity) and defensive efficiency (preventing opponent scores). Because pergame_stats_total.csv contains box-score metrics capturing both offensive productivity and turnover/rebounding controls, it provides sufficient empirical information to model and predict team win percentage."
   },
   {
     "objectID": "index.html#what-the-baseline-shows",
     "href": "index.html#what-the-baseline-shows",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "What the baseline shows",
     "text": "What the baseline shows\nDescribe and justify a simple course-based baseline regression model. Interpret the result that best establishes the rest of the story, including its direction, magnitude, scale, and uncertainty. Explain one limitation or unresolved pattern that motivates deeper analysis.\n\n\nShow code\n# Load packages and data, document preparation, and fit the baseline.\n\n\n\n\nShow code\n# Show a primary figure or table only if it helps answer the question."
   },
   {
     "objectID": "index.html#going-beyond-the-baseline",
     "href": "index.html#going-beyond-the-baseline",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "Going beyond the baseline",
     "text": "Going beyond the baseline\nUse two STAT 330 method families. Give each part a descriptive heading that states the question or finding, not an assignment label. Explain why you chose each method, how you checked it, and what it adds to the answer.\n\nReplace with a question or finding\nPresent one method and its most useful evidence.\n\n\nShow code\n# Analysis code for this part.\n\n\n\n\nReplace with another question or finding\nPresent a method from a different family and its most useful evidence. Combine this with the preceding subsection if that creates a clearer story.\n\n\nShow code\n# Analysis code for this part."
   },
   {
     "objectID": "index.html#a-new-direction-with-ai",
     "href": "index.html#a-new-direction-with-ai",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "A new direction with AI",
     "text": "A new direction with AI\nExplain the need revealed by your preliminary course-based work, the extension you implemented with AI support, and what it contributes to the same research question. Show its substantive result on this page and summarize your independent checks. If the extension is an untaught comparator, evaluate it against the core course-based model. Link to the AI-use record instead of placing a transcript here.\n\n\nShow code\n# Implement the verified extension or show its most useful result.\n\n\nDetails are in the AI-use record."
   },
   {
     "objectID": "index.html#what-this-means",
     "href": "index.html#what-this-means",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "What this means",
     "text": "What this means\nAnswer the research question directly. Distinguish statistical evidence from practical importance, state the most consequential limitations, and suggest one sensible next step. Avoid causal claims unless the study design supports them."
   },
   {
     "objectID": "index.html#data-and-code",
     "href": "index.html#data-and-code",
-    "title": "Replace with a specific, informative title",
+    "title": "NBA Team Winning Percentage and Field-Goal Percentage",
     "section": "Data and code",
     "text": "Data and code\n\nData: Replace with a working source link or citation and any brief acquisition note needed to reproduce the project.\nRepository: Replace with your repository URL.\nAI-use record\nOther sources: Cite package documentation, articles, code, and other sources that materially informed the work."
   }

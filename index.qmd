@@ -1,7 +1,7 @@
 ---
-title: "Replace with a specific, informative title"
-subtitle: "Replace with one sentence that tells readers why the question matters"
-author: "Replace with all group members' names"
+title: "NBA Team Winning Percentage and Field-Goal Percentage"
+subtitle: "Understanding factors that contribute to win percentage is important for die-hard fans to contextualize their team's performance over the course of a season."
+author: "Akira Manchego, Blake Doty, and Caleb Weaver."
 date: last-modified
 description: "Replace with a brief description for link previews."
 ---
@@ -14,7 +14,9 @@ This template suggests one way to tell the story. You may rename, combine, or re
 
 ## The question
 
-**In one or two short paragraphs, introduce the setting, audience, focused research question, data source, observational unit, response, important predictors, and one important data limitation. Lead with what makes the question worth answering.**
+Which factors most influence an NBA team's winning percentage? For this project we will seek to predict win percentage for NBA teams given stats such as season total rebounds, shot percentage, free-throw percentage, assists, blocks, etc. The intended audience for this project is Dr. White, as well as any NBA fans in our class. Understanding factors that contribute to win percentage is important for die-hard fans to contextualize their team's performance over the course of a season. The answer also matters for sports broadcasters so that they can help their viewers understand why certain teams are better than others.
+
+The dataset used in this study is the NBA Teams Stat 2000–2023 dataset, created by bluedreamv1b3 and hosted on Kaggle: <https://www.kaggle.com/datasets/bluedreamv1b3/nba-teams-stat-2000-2023>. The specific file analyzed is pergame_stats_total.csv. The observational unit is an NBA team season (a single NBA franchise's regular season performance in a given year, e.g., 2015-16 Golden State Warriors). The dataset contains 720 observations (30 teams across 24 seasons from 2000 to 2023) and approximately 25 to 30 feature columns. Response Variable: Win-Loss Percentage (W/L% or calculated as $\text{Wins} / (\text{Wins} + \text{Losses})$).Candidate Predictors: Per-game team statistics, including Points Per Game (PTS), Field Goal Percentage (FG%), Three-Point Percentage (3P%), Rebounds (TRB), Assists (AST), Steals (STL), Blocks (BLK), Turnovers (TOV), and Opponent Points Allowed (OPTS or PTSd). The data was collected via web scraping from public statistical archives on Basketball-Reference.com. Because Basketball-Reference makes aggregate sports statistics publicly available for fan and research use, retrieving and sharing this dataset for academic/educational non-commercial purposes carries no privacy concerns (it contains aggregate team performance metrics, no private personal data). Team win/loss percentage in professional basketball is directly driven by offensive efficiency (scoring capacity) and defensive efficiency (preventing opponent scores). Because pergame_stats_total.csv contains box-score metrics capturing both offensive productivity and turnover/rebounding controls, it provides sufficient empirical information to model and predict team win percentage.
 
 ## What the baseline shows
 
