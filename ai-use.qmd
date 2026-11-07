@@ -4,41 +4,48 @@ description: "A concise record of AI-supported work on this project."
 author: "Akira Manchego, Blake Doty, and Caleb Weaver."
 ---
 
-This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range.
+This page records the preliminary extension plan for the Publishing and AI Checkpoint. The extension has not yet been fitted or independently verified.
 
 ## Starting point
 
-**AI system and date:** Replace.
+**AI system and date:** OpenAI ChatGPT/Codex, November 6, 2026.
 
-**Before using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.**
+Our question is how NBA team statistics predict regular-season winning percentage. Our course-based baseline is simple linear regression of winning percentage on field-goal percentage, both measured on a 0–100 scale. Across 715 team-seasons with year labels 2000–2023, the estimated slope is approximately 5.10 percentage points of winning percentage per one-percentage-point higher field-goal percentage (conventional 95% confidence interval: 4.54–5.65). The in-sample R-squared is approximately 31.4%.
+
+The baseline omits defense and assumes a straight-line relationship. We want to investigate whether nonlinear relationships and interactions improve prediction while retaining regression as the core of our case study.
 
 ## Substantive prompts
 
-Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.
+Akira submitted this exact extension-selection prompt:
 
-> Replace with an exact prompt.
+> Our STAT 330 project asks how NBA team statistics predict regular-season winning percentage. Our baseline is simple linear regression predicting winning percentage from field-goal percentage, both on a 0–100 scale. Across 715 team-seasons from 2000–2023, the slope is about 5.10, with a 95% confidence interval of 4.54–5.65, and R-squared is 31.4%.
 
-> Replace with another exact prompt, if needed.
+> The baseline omits defense and assumes a linear relationship. Suggest three feasible beyond-course extensions, including decision-tree regression and Gaussian process regression. Explain how each would strengthen this same research question, how its results would enter our final case study, and two independent ways to verify it. Keep our regression analysis central and do not choose for us.
+
+The AI suggested decision-tree regression, Gaussian process regression, and random-forest regression, with proposed applications and verification checks. Akira selected decision-tree regression. No extension implementation prompts have been used yet.
 
 ## My decisions
 
-- **Accepted:** What useful advice did you use?
-- **Changed:** What did you adapt to fit your data or goals?
-- **Rejected or corrected:** What advice was unsuitable, unnecessary, or wrong?
+- **Accepted:** Propose a decision-tree regression comparator that can capture thresholds and interactions among shooting and defensive statistics. We plan to use R's `rpart` package with a continuous response and `method = "anova"`.
+- **Changed:** We will compare the tree not only with the field-goal-percentage baseline, but also with a course-based regression using the same predictors and observations. This helps distinguish gains from added defensive information from gains due to changing the model form. Candidate variables include field-goal percentage, points per game, turnovers, rebounds, and defensive rating, subject to data checks.
+- **Not selected:** Gaussian process regression and random forests are outside the scope of the selected extension. They are alternatives, not methods shown to be unsuitable by our results.
+- **Evaluation plan:** Reserve later complete seasons as a test set. Tune tree complexity and prune using only earlier training seasons, keeping seasons together during resampling. Evaluate all comparators on the identical test observations using RMSE in winning-percentage points. Exclude wins, losses, winning percentage, and variables calculated from wins or losses from the predictor set.
 
-**Connection to the final case study:** Identify where the extension's method and result appear on the final page and how they strengthen the course-based analysis.
+**Connection to the final case study:** We plan to report the tree's method, main splits, and comparison with regression in the "A new direction with AI" section of the case-study page. Its purpose is to investigate whether thresholds and interactions improve the same prediction task. The course-based regression and two required course-method families will remain central. No improvement is claimed before evaluation.
 
 ## Independent verification
 
-1. **Check and result:** Replace with an official source, diagnostic, simulation, manual calculation, comparison with a known method, or another suitable check.
-2. **Check and result:** Replace with a different check and what you learned.
+These are two planned checks, not completed verification results.
 
-Link or cite verification sources where appropriate. A second AI response does not count as independent verification.
+1. **Documentation and manual calculation:** Check the regression settings, complexity controls, and pruning behavior against the official [`rpart` documentation](https://stat.ethz.ch/R-manual/R-devel/library/rpart/html/rpart.html). After fitting an unweighted regression tree, manually route selected training rows through the split rules and confirm that the prediction in a terminal node equals the mean winning percentage of its training observations. Record the calculation and whether it matches the package output.
+2. **Held-out comparison and error calculation:** Compare the pruned tree with the baseline and a same-predictor course-based regression on later seasons excluded from training and tuning. Independently calculate RMSE as `sqrt(mean((observed - predicted)^2))` from the saved test predictions and compare it with the reported evaluation output. Record the errors and whether any improvement is consistent across additional season-based validation splits within the training period.
+
+Another AI response will not be treated as an independent check. Results and supporting evidence will be added after implementation.
 
 ## Remaining limitation
 
-**State one important uncertainty, failure mode, or limitation that remains.**
+A single tree may be unstable: small changes in the training seasons can change its splits. Tree-based associations do not establish causality. Because predictors summarize the same season as the outcome, test results would measure prediction using completed-season statistics, not preseason forecasting ability. Changing NBA conditions and repeated franchises may also limit generalization.
 
 ## Other AI use, if any
 
-**Briefly disclose earlier debugging, proofreading, or other AI assistance. Write “None” if there was no other use.**
+On October 23, 2026, Akira used ChatGPT/Codex to understand the proposal requirements, help write and debug baseline R code, interpret regression results, propose future analysis directions, and draft and edit proposal text. On November 6, 2026, Akira used it to clarify checkpoint requirements, generate extension suggestions, and prepare this AI-use record. The group remains responsible for checking the code and claims. Blake's and Caleb's other AI use has not yet been confirmed; this record should be updated if they used AI for additional project work.
